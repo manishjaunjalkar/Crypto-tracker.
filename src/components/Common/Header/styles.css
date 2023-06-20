@@ -1,0 +1,60 @@
+.navbar{
+display: flex;
+position: sticky;
+top: 0;
+justify-content: space-between;
+padding: 1.5rem 3rem;
+align-items: center;
+background-color:var(--black);
+z-index: 1000;
+}
+a{
+   text-decoration: none; 
+}
+.links{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
+    
+}
+.link{
+    color: var(--grey);
+    font-size: 1rem;
+    font-weight: 600;
+}
+.logo{
+    font-size: 1.5rem;
+}
+.link:hover{
+    color: var(--white);
+    transition: all 0.3s;
+}
+.mobile-drawer{
+    display: none;
+}
+
+@media screen and (max-width:800px) {
+.navbar{
+    padding: 1.5rem;
+}
+.logo{
+    font-size: 1rem;
+}
+
+    
+.links{
+display: none;
+}
+.mobile-drawer{
+    display: block;
+}
+.drawer-div{
+    width: 40vw;
+    height: 100vh;
+    background-color: var(--black);
+    padding: 1.5rem;
+    
+}
+    
+}

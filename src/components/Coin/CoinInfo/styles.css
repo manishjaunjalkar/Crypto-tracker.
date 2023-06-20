@@ -1,0 +1,11 @@
+.coin-info-desc a{
+color: white;
+text-decoration: underline !important;
+}
+.coin-info-desc a:hover{
+   
+    color: var(--blue);
+ }
+ .coin-info-desc span{
+    cursor: pointer;
+ }

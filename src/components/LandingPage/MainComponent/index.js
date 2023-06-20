@@ -35,7 +35,9 @@ function MainComponent(){
  
                 >
                     <a  href="/dashboard"><Button text={"Dashboard"}/></a>
+                   
                     <Button text={"Share"} outlined={true}/>
+                  
                 </motion.div>
             </div>
             <div className="phone-container">

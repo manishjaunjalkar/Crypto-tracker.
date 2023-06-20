@@ -34,6 +34,20 @@ a{
     display: none;
 }
 
+[data-theme="dark"] {
+   .navbar { background-color: #000;
+    color: #fff;
+   }
+
+  }
+  
+  [data-theme="light"] {
+    .navbar{
+    background-color: #f5f5f5;
+    color: #000;
+    }
+  }
+
 @media screen and (max-width:800px) {
 .navbar{
     padding: 1.5rem;
@@ -41,7 +55,9 @@ a{
 .logo{
     font-size: 1rem;
 }
-
+.links-mode {
+    display: none;
+  }
     
 .links{
 display: none;

@@ -6,7 +6,7 @@ import PriceToggle from "../components/Coin/PriceType";
  import Header from "../components/Common/Header";
  import Loader from "../components/Common/Loader";
  import SelectCoin from "../components/Compare/SelectCoins";
- import { coinObject } from "../functions/convertObject";
+ import { coinObject } from "../functions/ConvertObject";
  import { get100Coins } from "../functions/get100Coins";
  import { getCoinData } from "../functions/getCoinData";
  import { getCoinPrices } from "../functions/getCoinPrices";

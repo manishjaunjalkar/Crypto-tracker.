@@ -6,7 +6,7 @@ import PriceToggle from "../components/Coin/PriceType";
 import SelectDays from "../components/Coin/SelectDays";
 import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader";
-import { coinObject } from "../functions/convertObject";
+import { coinObject } from "../functions/ConvertObject";
 import { getCoinData } from "../functions/getCoinData";
 import { getCoinPrices } from "../functions/getCoinPrices";
 import { SettingChartData } from "../functions/settingChartData";

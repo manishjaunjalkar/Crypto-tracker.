@@ -1,80 +1,79 @@
-import React,{useState} from "react";
-import "./styles.css";
-import TemporaryDrawer from "./drawer";
-import Button from "../Button";
-import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
 import { Switch } from "@mui/material";
-let Header = ()=>{
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import Button from "../Button";
+import MobileDrawer from "./drawer";
+import "./styles.css";
 
-        const [darkMode, setDarkMode] = useState(
-          localStorage.getItem("theme") == "dark" ? true : false
-        );
-      
-        useEffect(() => {
-          if (localStorage.getItem("theme") == "dark") {
-            setDark();
-          } else {
-            setLight();
-          }
-        }, []);
-      
-        const changeMode = () => {
-          setDarkMode(!darkMode);
-          toast.success("Theme Changed!");
-          const mode = localStorage.getItem("theme");
-          if (mode == "dark") {
-            setLight();
-          } else {
-            setDark();
-          }
-        };
-      
-        const setDark = () => {
-          localStorage.setItem("theme", "dark");
-          document.documentElement.setAttribute("data-theme", "dark");
-        };
-      
-        const setLight = () => {
-          localStorage.setItem("theme", "light");
-          document.documentElement.setAttribute("data-theme", "light");
-        };
-      
-    return (
-        <div className="navbar">
-            <h1 className="logo">Crypto Tacker <span style={{color: "var(--blue)"}}>.</span></h1>
-           
-            <div className="links">
-            <Switch
-            className="links-mode"
-                  checked={darkMode}
-                 onClick={() => {
-                 changeMode();
-                  }}
-              />
-                <NavLink to="/">
-                    <p className="link" >Home</p>
-                </NavLink>
-                <a href="/compare">
-                    <p className="link">Compare</p>
-                </a>
-                <a href="/watchlist">
-                    <p className="link">Watchlist</p>
-                </a>
-                <NavLink to="/dashboard">
-                   <Button text = {"Dashboard"}
-                   onClick={()=>console.log("Clicked")}
-                   />
-                </NavLink>
-            </div>
-            <div className="mobile-drawer">
-                    <TemporaryDrawer/>
-                </div>
-        </div>
-        
+function Header() {
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") == "dark" ? true : false
+  );
 
-    )
+  useEffect(() => {
+    if (localStorage.getItem("theme") == "dark") {
+      setDark();
+    } else {
+      setLight();
+    }
+  }, []);
+
+  const changeMode = () => {
+    setDarkMode(!darkMode);
+    toast.success("Theme Changed!");
+    const mode = localStorage.getItem("theme");
+    if (mode == "dark") {
+      setLight();
+    } else {
+      setDark();
+    }
+  };
+
+  const setDark = () => {
+    localStorage.setItem("theme", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+  };
+
+  const setLight = () => {
+    localStorage.setItem("theme", "light");
+    document.documentElement.setAttribute("data-theme", "light");
+  };
+
+  return (
+    <div className="header">
+      <a href="/">
+        <h1>
+          CryptoTracker<span style={{ color: "var(--blue)" }}>.</span>
+        </h1>
+      </a>
+      <div className="links-flex">
+        <Switch
+          checked={darkMode}
+          onClick={() => {
+            changeMode();
+          }}
+        />
+        <a href="/">
+          <p className="link">Home</p>
+        </a>
+        <a href="/compare">
+          <p className="link">Compare</p>
+        </a>
+        <a href="/watchlist">
+          <p className="link">Watchlist</p>
+        </a>
+        <a href="/Dashboard">
+          <Button outlined={true} 
+            text="Dashboard"
+            onClick={() => {
+              console.log("btn-clicked!!!");
+            }}
+          />
+        </a>
+      </div>
+      <MobileDrawer />
+    </div>
+  );
 }
 
 export default Header;

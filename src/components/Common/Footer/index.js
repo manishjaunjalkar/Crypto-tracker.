@@ -15,6 +15,20 @@ function Footer() {
       <h2 className="logo" onClick={() => topFunction()}>
         CryptoTracker<span>.</span>
       </h2>
+      <div className="social-links">
+        <a href="https://facebook.com">
+          <FacebookIcon className="social-link" />
+        </a>
+        <a href="mailto:manishvjaunjalkar@gmail.com">
+          <EmailIcon className="social-link" />
+        </a>
+        <a href="https://www.twitter.com">
+          <TwitterIcon className="social-link" />
+        </a>
+        <a href="https://www.instagram.com">
+          <InstagramIcon className="social-link" />
+        </a>
+      </div>
     </div>
   );
 }

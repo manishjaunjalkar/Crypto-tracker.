@@ -4,15 +4,3 @@
   justify-content: center;
   align-items: center;
 }
-  
-  [data-theme="dark"] {
-    .pagination-div { background-color: #000;
-     color: #fff;
-    }
-   }
-   [data-theme="light"] {
-     .pagination-div{
-     background-color: #f5f5f5;
-     color: #000;
-     }
-   }

@@ -1,33 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Button from "../components/Common/Button";
-// import Footer from "../components/Common/Footer";
 import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader";
-import DashboardTabs from "../components/Dashboard/tabs";
+import TabsComponent from "../components/Dashboard/tabs";
 import { get100Coins } from "../functions/get100Coins";
-
+import Footer from "../components/Common/Footer";
 function WatchlistPage() {
   const coins = JSON.parse(localStorage.getItem("watchlist")) || [];
   const [myWatchlist, setMyWatchlist] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
-    try {
-      setLoading(true);
-      const allCoins = await get100Coins();
-      if (coins) {
-        setMyWatchlist(allCoins.filter((item) => coins.includes(item.id)));
-      }
-      setLoading(false);
+    setLoading(true);
+    const allCoins = await get100Coins();
+    if (coins) {
+      setMyWatchlist(allCoins.filter((item) => coins.includes(item.id)));
     }
-    catch (error) {
-      setLoading(false);
-      console.log(error.message);
-    }
+    setLoading(false);
   };
 
   return (
@@ -36,7 +29,7 @@ function WatchlistPage() {
         <Loader />
       ) : (
         <div style={{ minHeight: "90vh" }}>
-          {myWatchlist?.length === 0 || !coins ? (
+          {myWatchlist?.length == 0 || !coins ? (
             <div>
               <Header />
               <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
@@ -49,19 +42,21 @@ function WatchlistPage() {
               </div>
             </div>
           ) : (
-            <div style={{ height: "95vh" }}>
+            <div style={{ height: "95%" }}>
               <Header />
-              <DashboardTabs coins={myWatchlist} isWatchlistPage={true} />
+              <TabsComponent coins={myWatchlist} isWatchlistPage={true} />
+              <Footer/>
+
             </div>
           )}
-
+          
         </div>
       )}
-      {/* <Footer/> */}
+     
     </div>
-
+   
   );
-
+ 
 }
 
 export default WatchlistPage;
